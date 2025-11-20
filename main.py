@@ -14,7 +14,5 @@ while True:
         print("終了します")
         sys.exit(0)
     elif i.lower() == 'number_list':
-        print("3番目の要素は：")
-        print(number_list[3])
-        print("です")
+        print("3番目の要素は：" + str(number_list[3]) + "です")
     print("\n")
