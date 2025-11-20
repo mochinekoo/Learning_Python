@@ -1,3 +1,4 @@
+import subprocess
 import sys
 import time
 import psutil
@@ -25,4 +26,7 @@ while True:
         cpu_percent = psutil.cpu_percent(percpu=True)
         print("CPU", cpu_percent)
         print("Mem", mem.percent)
+    elif i.lower() == 'run_sh':
+        processs = subprocess.run(["F:\\Program Files\\Git\\bin\\bash.exe", "subprocess.sh"], capture_output=True, text=True)
+        print(processs.stdout)
     print("\n")
