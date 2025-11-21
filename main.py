@@ -1,32 +1,30 @@
-import subprocess
-import sys
-import time
-import psutil
+from typing import List
 
+from ArrayCommand import ArrayCommand
+from CommandBase import CommandBase
 from SubClass import SubClass
+from SystemCommand import SystemCommand
 
 subClass = SubClass()
-number_list = [10, 20, 30, 40]
 
-cpu_percent = psutil.cpu_percent(percpu=True)
-mem = psutil.virtual_memory()
+
+cmd_list: List[CommandBase] = []
 
 subClass.print("てすと")
 print("入出力を受け付けてます: \n")
 
+cmd_list.append(SystemCommand())
+cmd_list.append(ArrayCommand())
+
 while True:
     i = input()
-    if i.lower() == 'exit':
-        print("終了します")
-        sys.exit(0)
-    elif i.lower() == 'number_list':
-        print("3番目の要素は：" + str(number_list[3]) + "です")
-    elif i.lower() == 'cpumem_info':
-        time.sleep(2)
-        cpu_percent = psutil.cpu_percent(percpu=True)
-        print("CPU", cpu_percent)
-        print("Mem", mem.percent)
-    elif i.lower() == 'run_sh':
-        processs = subprocess.run(["F:\\Program Files\\Git\\bin\\bash.exe", "subprocess.sh"], capture_output=True, text=True)
-        print(processs.stdout)
+    end_result = False
+    for cmd in cmd_list:
+        cmd_result = cmd.runcmd(i)
+        if cmd_result:
+            end_result = True
+
+    if not end_result:
+        print("コマンドが見つかりませんでした")
+
     print("\n")
