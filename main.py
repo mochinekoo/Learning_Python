@@ -2,6 +2,7 @@ from typing import List
 
 from ArrayCommand import ArrayCommand
 from CommandBase import CommandBase
+from FileCommand import FileCommand
 from SubClass import SubClass
 from SystemCommand import SystemCommand
 from ThreadCommand import ThreadCommand
@@ -17,6 +18,7 @@ print("入出力を受け付けてます: \n")
 cmd_list.append(SystemCommand())
 cmd_list.append(ArrayCommand())
 cmd_list.append(ThreadCommand())
+cmd_list.append(FileCommand())
 
 while True:
     i = input()
