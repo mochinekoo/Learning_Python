@@ -6,6 +6,7 @@ from FileCommand import FileCommand
 from SubClass import SubClass
 from SystemCommand import SystemCommand
 from ThreadCommand import ThreadCommand
+from ThrowCommand import ThrowCommand
 
 subClass = SubClass()
 
@@ -19,6 +20,7 @@ cmd_list.append(SystemCommand())
 cmd_list.append(ArrayCommand())
 cmd_list.append(ThreadCommand())
 cmd_list.append(FileCommand())
+cmd_list.append(ThrowCommand())
 
 while True:
     i = input()
