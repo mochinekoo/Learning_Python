@@ -4,6 +4,7 @@ from ArrayCommand import ArrayCommand
 from CommandBase import CommandBase
 from SubClass import SubClass
 from SystemCommand import SystemCommand
+from ThreadCommand import ThreadCommand
 
 subClass = SubClass()
 
@@ -15,6 +16,7 @@ print("入出力を受け付けてます: \n")
 
 cmd_list.append(SystemCommand())
 cmd_list.append(ArrayCommand())
+cmd_list.append(ThreadCommand())
 
 while True:
     i = input()
